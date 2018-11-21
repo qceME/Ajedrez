@@ -15,6 +15,19 @@ public class Posicion {
     private char columna;
     
     
+        /**
+     * Constructor que inicializa todos los atributos a través de parámetros
+     * @param fila fila del tablero 
+     * @param columna columna del tablero
+     */
+    public Posicion (char columna, int fila)
+    {
+        setColumna(columna);
+        setFila(fila);
+    }        
+    //no lanzamos excepciones ya que las validaciones se realizan en los set de ambos atributos que se piden
+    //y de esta forma si le pasasemos un parámetro incorrecto saltaría las excepciones de los setters
+    
 //métodos get y set
     public int getFila() {
         return fila;
