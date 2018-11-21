@@ -28,7 +28,15 @@ public class Posicion {
     //no lanzamos excepciones ya que las validaciones se realizan en los set de ambos atributos que se piden
     //y de esta forma si le pasasemos un parámetro incorrecto saltaría las excepciones de los setters
     
-//métodos get y set
+    public Posicion(final Posicion clonaAtrib)
+    {
+        if (clonaAtrib==null) throw new IllegalArgumentException("ERROR: Has pasado un parametro nulo");
+        
+        this.fila=clonaAtrib.fila;
+        this.columna=clonaAtrib.columna;
+    }        
+    
+//métodos get y se
     public int getFila() {
         return fila;
     }
