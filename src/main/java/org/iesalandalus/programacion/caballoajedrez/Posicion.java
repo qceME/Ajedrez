@@ -36,7 +36,7 @@ public class Posicion {
         this.columna=clonaAtrib.columna;
     }        
     
-//métodos get y se
+//métodos get y set
     public int getFila() {
         return fila;
     }
@@ -67,4 +67,28 @@ public class Posicion {
           throw new IllegalArgumentException("La columna pasada como parámetro no es válida");            
            
     }
+
+  //método equals
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Posicion other = (Posicion) obj;
+        if (this.fila != other.fila) {
+            return false;
+        }
+        if (this.columna != other.columna) {
+            return false;
+        }
+        return true;
+    }
+    
 }
