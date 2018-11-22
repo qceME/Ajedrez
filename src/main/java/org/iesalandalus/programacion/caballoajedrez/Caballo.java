@@ -5,6 +5,8 @@
  */
 package org.iesalandalus.programacion.caballoajedrez;
 
+import java.util.Objects;
+
 /**
  *
  * @author usuario
@@ -21,7 +23,22 @@ public class Caballo {
     {
         this.color=Color.NEGRO;
         this.posicion=new Posicion(8,'b');
-    }        
+    }
+
+   
+    public Caballo(Color color)
+    {
+        if (color==null) throw new IllegalArgumentException("ERROR: Has pasado un parametro nulo");
+        
+        if (color==Color.NEGRO)
+        {
+           this.posicion=new Posicion(8,'b');
+        }
+        if (color==Color.BLANCO)
+        {
+            this.posicion=new Posicion(1,'b');
+        }
+    }
 
     public Color getColor() {
         return color;
