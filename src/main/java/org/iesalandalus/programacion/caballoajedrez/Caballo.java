@@ -6,6 +6,7 @@
 package org.iesalandalus.programacion.caballoajedrez;
 
 import java.util.Objects;
+import javax.naming.OperationNotSupportedException;
 
 /**
  *
@@ -90,7 +91,7 @@ public class Caballo {
         this.posicion = posicion;
     }
     
-    public void Mover(Direccion nuevaDir)
+    public void Mover(Direccion nuevaDir) throws OperationNotSupportedException 
     {
         int fila=posicion.getFila(),nuevaFila;
         char columna= posicion.getColumna(),nuevaColumna;
