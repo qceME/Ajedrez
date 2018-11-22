@@ -182,6 +182,11 @@ public class Caballo {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Caballo{" + "color=" + color + ", posicion=" + posicion + '}';
+    }
     
       
     
