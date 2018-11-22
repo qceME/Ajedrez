@@ -59,7 +59,7 @@ public class Caballo {
                 
         }    
         
-        else throw new IllegalArgumentException("ERROR: Has pasado un parametro nulo");
+        else throw new IllegalArgumentException("ERROR: Has pasado una columna errónea");
     }
 
     public Color getColor() {
