@@ -60,7 +60,15 @@ public class Caballo {
         }    
         
         else throw new IllegalArgumentException("ERROR: Has pasado una columna errónea");
+        
     }
+    
+    public Caballo(final Caballo caballoClon)
+    {
+        if (caballoClon==null) throw new IllegalArgumentException("ERROR: Has pasado un parametro nulo");
+        this.color=caballoClon.color;
+        this.posicion=caballoClon.posicion;
+    }        
 
     public Color getColor() {
         return color;
