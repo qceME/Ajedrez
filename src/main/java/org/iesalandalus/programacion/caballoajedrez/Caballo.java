@@ -90,6 +90,72 @@ public class Caballo {
         this.posicion = posicion;
     }
     
+    public void Mover(Direccion nuevaDir)
+    {
+        int fila=posicion.getFila(),nuevaFila;
+        char columna= posicion.getColumna(),nuevaColumna;
+                
+        switch (nuevaDir)
+        {
+            case ARRIBA_IZQUIERDA:
+                    nuevaFila=fila-1;
+                    nuevaColumna=(char)(columna+2);
+                    posicion.setColumna(nuevaColumna);
+                    posicion.setFila(nuevaFila);
+                    break;
+                    
+            case ARRIBA_DERECHA:
+                    nuevaFila=fila+1;
+                    nuevaColumna=(char)(columna+2);
+                    posicion.setColumna(nuevaColumna);
+                    posicion.setFila(nuevaFila);
+                    break;
+                    
+            case DERECHA_ARRIBA:
+                    nuevaFila=fila+2;
+                    nuevaColumna=(char)(columna+1);
+                    posicion.setColumna(nuevaColumna);
+                    posicion.setFila(nuevaFila);
+                    break;
+                    
+            case DERECHA_ABAJO:
+                    nuevaFila=fila+2;
+                    nuevaColumna=(char)(columna-1);
+                    posicion.setColumna(nuevaColumna);
+                    posicion.setFila(nuevaFila);
+                    break;
+                    
+            case ABAJO_DERECHA:
+                    nuevaFila=fila+1;
+                    nuevaColumna=(char)(columna-2);
+                    posicion.setColumna(nuevaColumna);
+                    posicion.setFila(nuevaFila);
+                    break;
+                    
+            case ABAJO_IZQUIERDA:
+                    nuevaFila=fila-1;
+                    nuevaColumna=(char)(columna-2);
+                    posicion.setColumna(nuevaColumna);
+                    posicion.setFila(nuevaFila);
+                    break;
+                    
+            case IZQUIERDA_ARRIBA:
+                    nuevaFila=fila-2;
+                    nuevaColumna=(char)(columna+1);
+                    posicion.setColumna(nuevaColumna);
+                    posicion.setFila(nuevaFila);
+                    break;
+                    
+            case IZQUIERDA_ABAJO:
+                    nuevaFila=fila-2;
+                    nuevaColumna=(char)(columna-1);
+                    posicion.setColumna(nuevaColumna);
+                    posicion.setFila(nuevaFila);
+                    break;        
+            }
+    }    
+    
+      
     
     
 }
