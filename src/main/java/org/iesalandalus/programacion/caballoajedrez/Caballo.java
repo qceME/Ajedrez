@@ -32,12 +32,34 @@ public class Caballo {
         
         if (color==Color.NEGRO)
         {
+           this.color=color;
            this.posicion=new Posicion(8,'b');
         }
         if (color==Color.BLANCO)
         {
+            this.color=color;
             this.posicion=new Posicion(1,'b');
         }
+    }
+    
+    public Caballo(Color color, char columna)
+    {
+        if (columna=='b' && columna=='g')
+        {
+            if (color==Color.BLANCO)
+            {    
+               this.posicion=new Posicion(1,columna);
+               this.color=color;
+            }
+            else
+            {   
+                this.posicion=new Posicion(8,columna);
+                this.color=color;
+            }    
+                
+        }    
+        
+        else throw new IllegalArgumentException("ERROR: Has pasado un parametro nulo");
     }
 
     public Color getColor() {
