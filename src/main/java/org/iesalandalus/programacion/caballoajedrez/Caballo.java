@@ -47,7 +47,7 @@ public class Caballo {
     {
         if (color==null) throw new IllegalArgumentException("ERROR: No se puede asignar un color nulo.");
 
-        if (columna=='b' && columna=='g')
+        if (columna=='b' || columna=='g')
         {
             this.color=color;
             if (color==Color.BLANCO)
@@ -61,7 +61,7 @@ public class Caballo {
                 
         }    
         
-        else throw new IllegalArgumentException("ERROR: Has pasado una columna errónea");
+        else throw new IllegalArgumentException("ERROR: Columna inicial no válida.");
         
     }
     
@@ -98,67 +98,73 @@ public class Caballo {
         int nuevaFila;
         char columna= posicion.getColumna();
         char nuevaColumna;
-                
+        try{      
         switch (nuevaDir)
         {
             case ARRIBA_IZQUIERDA:
-                    nuevaFila=fila-1;
-                    nuevaColumna=(char)(columna+2);
+                    nuevaFila=fila+2;
+                    nuevaColumna=(char)(columna-1);
                     posicion.setColumna(nuevaColumna);
                     posicion.setFila(nuevaFila);
                     break;
                     
             case ARRIBA_DERECHA:
+                    nuevaFila=fila+2;
+                    nuevaColumna=(char)(columna+1);
+                    posicion.setColumna(nuevaColumna);
+                    posicion.setFila(nuevaFila);
+                    break;
+                    
+            case DERECHA_ARRIBA:
                     nuevaFila=fila+1;
                     nuevaColumna=(char)(columna+2);
                     posicion.setColumna(nuevaColumna);
                     posicion.setFila(nuevaFila);
                     break;
                     
-            case DERECHA_ARRIBA:
-                    nuevaFila=fila+2;
-                    nuevaColumna=(char)(columna+1);
-                    posicion.setColumna(nuevaColumna);
-                    posicion.setFila(nuevaFila);
-                    break;
-                    
             case DERECHA_ABAJO:
-                    nuevaFila=fila+2;
-                    nuevaColumna=(char)(columna-1);
+                    nuevaFila=fila-1;
+                    nuevaColumna=(char)(columna+2);
                     posicion.setColumna(nuevaColumna);
                     posicion.setFila(nuevaFila);
                     break;
                     
             case ABAJO_DERECHA:
+                    nuevaFila=fila-2;
+                    nuevaColumna=(char)(columna+1);
+                    posicion.setColumna(nuevaColumna);
+                    posicion.setFila(nuevaFila);
+                    break;
+                    
+            case ABAJO_IZQUIERDA:
+                    nuevaFila=fila-2;
+                    nuevaColumna=(char)(columna-1);
+                    posicion.setColumna(nuevaColumna);
+                    posicion.setFila(nuevaFila);
+                    break;
+                    
+            case IZQUIERDA_ARRIBA:
                     nuevaFila=fila+1;
                     nuevaColumna=(char)(columna-2);
                     posicion.setColumna(nuevaColumna);
                     posicion.setFila(nuevaFila);
                     break;
                     
-            case ABAJO_IZQUIERDA:
+            case IZQUIERDA_ABAJO:
                     nuevaFila=fila-1;
                     nuevaColumna=(char)(columna-2);
-                    posicion.setColumna(nuevaColumna);
-                    posicion.setFila(nuevaFila);
-                    break;
-                    
-            case IZQUIERDA_ARRIBA:
-                    nuevaFila=fila-2;
-                    nuevaColumna=(char)(columna+1);
-                    posicion.setColumna(nuevaColumna);
-                    posicion.setFila(nuevaFila);
-                    break;
-                    
-            case IZQUIERDA_ABAJO:
-                    nuevaFila=fila-2;
-                    nuevaColumna=(char)(columna-1);
+                    System.out.println("columna actual:"+columna);
+                    System.out.println("nueva colum"+nuevaColumna);
                     posicion.setColumna(nuevaColumna);
                     posicion.setFila(nuevaFila);
                     break;                    
                     default:
                     throw new OperationNotSupportedException("Movimiento erróneo");
         }
+        }catch (IllegalArgumentException e) {throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
+
+                
+                }
     }    
 
     @Override
@@ -190,7 +196,7 @@ public class Caballo {
 
     @Override
     public String toString() {
-        return "Caballo{" + "color=" + color + ", posicion=" + posicion + '}';
+        return "Caballo [posición=" +posicion+ ", color=" + color +"]";
     }
     
     
