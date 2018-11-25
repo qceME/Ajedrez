@@ -161,7 +161,10 @@ public class Caballo {
                     default:
                     throw new OperationNotSupportedException("Movimiento erróneo");
         }
-        }catch (IllegalArgumentException e) {throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
+        }catch (IllegalArgumentException e) {
+            posicion.setColumna(columna);
+            posicion.setFila(fila);
+            throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
 
                 
                 }

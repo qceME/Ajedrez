@@ -20,17 +20,18 @@ public class Posicion {
      * @param fila fila del tablero 
      * @param columna columna del tablero
      */
-    public Posicion (char columna, int fila)
+    public Posicion (int fila, char columna)
     {
-        setColumna(columna);
         setFila(fila);
+        setColumna(columna);
+       
     }        
     //no lanzamos excepciones ya que las validaciones se realizan en los set de ambos atributos que se piden
     //y de esta forma si le pasasemos un parámetro incorrecto saltaría las excepciones de los setters
     
     public Posicion(final Posicion clonaAtrib)
     {
-        if (clonaAtrib==null) throw new IllegalArgumentException("ERROR: Has pasado un parametro nulo");
+        if (clonaAtrib==null) throw new IllegalArgumentException("ERROR: No es posible copiar una posición nula.");
         
         this.fila=clonaAtrib.fila;
         this.columna=clonaAtrib.columna;
@@ -47,7 +48,7 @@ public class Posicion {
             this.fila = fila;
           }
         else
-          {throw new IllegalArgumentException("El número de fila pasado como parámetro no es válido");            
+          {throw new IllegalArgumentException("ERROR: Fila no válida.");            
           }  
             
         
@@ -63,12 +64,18 @@ public class Posicion {
           
             this.columna = columna;
           
-        else
-          throw new IllegalArgumentException("La columna pasada como parámetro no es válida");            
-           
+        else{
+          throw new IllegalArgumentException("ERROR: Columna no válida.");           
+        }
     }
 
   //método equals
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -93,7 +100,9 @@ public class Posicion {
 
     @Override
     public String toString() {
-        return "Posicion{" + "fila=" + fila + ", columna=" + columna + '}';
+        return "[fila=" + fila + ", columna=" + columna+"]";
     }
+
+    
     
 }

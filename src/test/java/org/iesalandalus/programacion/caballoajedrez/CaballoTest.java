@@ -8,11 +8,10 @@ import org.junit.Test;
 
 public class CaballoTest {
 	
-	/*private Posicion posicionDefectoNegro = new Posicion(8, 'b');
+	private Posicion posicionDefectoNegro = new Posicion(8, 'b');
 	private Posicion posicionDefectoBlanco = new Posicion(1, 'b');
 	private Posicion posicionNegroG = new Posicion(8, 'g');
 	private Posicion posicionBlancoG = new Posicion(1, 'g');
-
 	@Test
 	public void constructorDefectoTest() {
 		Caballo caballo = new Caballo();
@@ -182,7 +181,8 @@ public class CaballoTest {
 	@Test
 	public void toStringTest() {
 		Caballo caballo = new Caballo();
-		assertEquals("Caballo [posición=[fila=8, columna=b], color=NEGRO]", caballo.toString());
-	}*/
+                System.out.println(caballo.toString());
+		assertEquals("Caballo [posición=[fila=8, columna=b], color=NEGRO]", caballo.toString());              
+	}
 
 }
