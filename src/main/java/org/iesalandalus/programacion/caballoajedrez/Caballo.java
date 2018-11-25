@@ -29,34 +29,35 @@ public class Caballo {
    
     public Caballo(Color color)
     {
-        if (color==null) throw new IllegalArgumentException("ERROR: Has pasado un parametro nulo");
+        if (color==null) throw new IllegalArgumentException("ERROR: No se puede asignar un color nulo.");
+        
+        this.color=color;
         
         if (color==Color.NEGRO)
         {
-           this.color=color;
            this.posicion=new Posicion(8,'b');
         }
-        if (color==Color.BLANCO)
+        else if (color==Color.BLANCO)
         {
-            this.color=color;
             this.posicion=new Posicion(1,'b');
         }
     }
     
     public Caballo(Color color, char columna)
     {
+        if (color==null) throw new IllegalArgumentException("ERROR: No se puede asignar un color nulo.");
+
         if (columna=='b' && columna=='g')
         {
+            this.color=color;
             if (color==Color.BLANCO)
             {    
                this.posicion=new Posicion(1,columna);
-               this.color=color;
             }
-            else
+            else if (color==Color.NEGRO)
             {   
                 this.posicion=new Posicion(8,columna);
-                this.color=color;
-            }    
+            }   
                 
         }    
         
@@ -64,12 +65,12 @@ public class Caballo {
         
     }
     
-    public Caballo(final Caballo caballoClon)
+   /* public Caballo(final Caballo caballoClon)
     {
         if (caballoClon==null) throw new IllegalArgumentException("ERROR: Has pasado un parametro nulo");
         this.color=caballoClon.color;
         this.posicion=caballoClon.posicion;
-    }        
+    }        */
 
     public Color getColor() {
         return color;
@@ -91,10 +92,12 @@ public class Caballo {
         this.posicion = posicion;
     }
     
-    public void Mover(Direccion nuevaDir) throws OperationNotSupportedException 
+    public void mover(Direccion nuevaDir) throws OperationNotSupportedException 
     {
-        int fila=posicion.getFila(),nuevaFila;
-        char columna= posicion.getColumna(),nuevaColumna;
+        int fila=posicion.getFila();
+        int nuevaFila;
+        char columna= posicion.getColumna();
+        char nuevaColumna;
                 
         switch (nuevaDir)
         {
@@ -152,8 +155,10 @@ public class Caballo {
                     nuevaColumna=(char)(columna-1);
                     posicion.setColumna(nuevaColumna);
                     posicion.setFila(nuevaFila);
-                    break;        
-            }
+                    break;                    
+                    default:
+                    throw new OperationNotSupportedException("Movimiento erróneo");
+        }
     }    
 
     @Override
@@ -187,8 +192,6 @@ public class Caballo {
     public String toString() {
         return "Caballo{" + "color=" + color + ", posicion=" + posicion + '}';
     }
-    
-      
     
     
 }
